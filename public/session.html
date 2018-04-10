@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>checking for the session</title>
+</head>
+<body>
+<div class="box">
+	<h1>login</h1>
+	<p>username</p>
+	<input type="text" name="username" id="username" placeholder="enter your username">
+	<p>password</p>
+	<input type="password" name="password" id="password" placeholder="enter your password">
+	<br>
+	<button id="submit">login</button>
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  	$(document).ready(function(){
+  		$('#submit').click(function(){
+  			var user={ 'username':$("#username").val(),
+                   'password':$("#password").val()
+  			};
+        $.ajax({
+          url:"/",
+          method:"post",
+          data:user,
+          success:function(data){
+            window.location = data;
+          }
+        });
+  		});
+  	});
+  </script>
+</body>
+</html>
