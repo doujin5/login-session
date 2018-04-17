@@ -5,6 +5,11 @@ var cookieParser = require('cookie-parser');
 var session=require('express-session');
 var logger = require('morgan');
 var port=4000;
+const mongoose = require('mongoose');
+ 
+mongoose.connect('mongodb://localhost/meradata');
+
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
